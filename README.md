@@ -1,8 +1,14 @@
 
-# Plant Pathology - Self-Supervised Learning 
+# PlantCLR: Leveraging Self-Supervised Contrastive Learning for Generalizable Plant Disease Detection
 
-This repository contains the complete implementation of our research paper on Scalable Plant Disease Detection using a hybrid learning framework that combines SimCLR-based contrastive pretraining with a custom CNN classifier. The proposed model first learns general-purpose visual representations in a self-supervised manner, and then fine-tunes these features for plant disease classification with minimal supervision. It supports dual operational modes projection for SimCLR and classification for diagnosis allowing for flexible experimentation. Our approach achieves high performance across diverse plant disease classes and includes robust visual analysis via Grad-CAM, t-SNE, ROC-AUC, and confusion matrix visualizations. This codebase is fully modular and intended for researchers, practitioners, and students exploring self-supervised learning and agricultural AI.
+[![Paper: IEEE Access](https://img.shields.io/badge/Paper-IEEE%20Access-blue.svg)](YOUR_PAPER_LINK_HERE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Python: 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![Framework: PyTorch](https://img.shields.io/badge/Framework-PyTorch-ee4c2c.svg)](https://pytorch.org/)
 
+Official implementation of the **PlantCLR** framework. This repository provides a scalable, self-supervised pipeline for agricultural AI, focusing on feature extraction from unlabelled data to improve diagnostic accuracy in low-resource settings.
+
+---
 
 ##  Project Structure
 
