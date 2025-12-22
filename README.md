@@ -12,21 +12,33 @@ Official implementation of the **PlantCLR** framework. This repository provides 
 
 ## 🔬 Research Overview & Methodology
 
-[cite_start]The **PlantCLR** framework addresses two critical bottlenecks in plant pathology: the high cost of expert data annotation and the poor generalization of models from lab-controlled environments to noisy, real-world fields[cite: 405, 406].
+The **PlantCLR** framework addresses two critical bottlenecks in plant pathology: the high cost of expert data annotation and the poor generalization of models from lab-controlled environments to noisy, real-world fields.
 
 ### 🛠 The Two-Stage Learning Pipeline
-[cite_start]Our methodology decouples representation learning from classification to ensure the model captures intrinsic biological features rather than background noise[cite: 497, 532].
+Our methodology decouples representation learning from classification to ensure the model captures intrinsic biological features rather than background noise.
 
-1. [cite_start]**Self-Supervised Pretraining (SimCLR-style):** - Uses a **ConvNeXt-Tiny** backbone as a feature encoder ($f_e$)[cite: 563].
-   - [cite_start]Employs a stochastic augmentation strategy ($T$) to generate positive pairs from the same image[cite: 544, 558].
-   - [cite_start]**Loss Function:** We utilize the **Normalized Temperature-scaled Cross-Entropy (NT-Xent)** loss[cite: 110].
-   
-   $$\mathcal{L}_{i,j} = -\log \frac{\exp(s_{i,j}/\tau)}{\sum_{k=1}^{2N} \mathbb{1}_{[k \neq i]} \exp(s_{i,k}/\tau)}$$
-   [cite_start]*where $s_{i,j}$ is the cosine similarity between projected embeddings $z_i$ and $z_j$[cite: 581, 586].*
+1. **Self-Supervised Pretraining (SimCLR-style):**
+   - **Backbone:** ConvNeXt-Tiny encoder $f(\cdot)$.
+   - **Strategy:** Uses a stochastic augmentation pipeline to generate two correlated views of each plant leaf.
+   - **Objective:** Minimize the **NT-Xent (Normalized Temperature-scaled Cross Entropy)** loss to maximize agreement between augmented versions of the same image in latent space.
 
 2. **Supervised Fine-Tuning:**
-   - [cite_start]The projection head is discarded, and a lightweight linear classifier ($h_{\psi}$) is attached to the frozen or unfrozen encoder[cite: 592, 594].
-   - [cite_start]Fine-tuned on labeled subsets using **Cross-Entropy Loss with Label Smoothing** to prevent overconfidence and improve robustness[cite: 601, 603].
+   - The projection head is removed, and a linear classifier is attached to the pretrained backbone.
+   - This allows the model to achieve high accuracy even with significantly reduced labeled training data.
 
+<p align="center">
+  <img src="https://github.com/ItsCodeBakery/PlantPathalogy/raw/main/Plots/CLR_Dia.png" alt="SimCLR CNN Classifier Diagram" width="700"/>
+  <br>
+  <em>Figure 1: The PlantCLR Architectural Workflow - Transitioning from Contrastive Pretraining to Disease Diagnosis.</em>
+</p>
+
+### 📐 Mathematical Objective
+To learn generalizable features, we optimize the **NT-Xent** loss function:
+
+$$
+\ell_{i,j} = -\log \frac{\exp(\text{sim}(z_i, z_j) / \tau)}{\sum_{k=1}^{2N} \mathbb{1}_{[k \neq i]} \exp(\text{sim}(z_i, z_k) / \tau)}
+$$
+
+*Where $\text{sim}(u, v)$ denotes cosine similarity and $\tau$ represents the temperature parameter.*
 
 ---
