@@ -93,6 +93,6 @@ To ensure reproducibility, we recommend using a virtual environment (Python 3.8+
 git clone [https://github.com/ItsCodeBakery/PlantPathology.git](https://github.com/ItsCodeBakery/PlantPathology.git)
 cd PlantPathology
 pip install -r requirements.txt
-
+---
 ### 2. Execution Pipeline
 Phase I: Self-Supervised Pretraining
