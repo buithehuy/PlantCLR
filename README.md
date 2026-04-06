@@ -1,13 +1,13 @@
 # PlantCLR: Leveraging Self-Supervised Contrastive Learning for Generalizable Plant Disease Detection
 
-[![Paper: Under Review](https://img.shields.io/badge/Paper-Under%20Review-yellow.svg)](https://github.com/ItsCodeBakery/PlantPathology)
+[![Paper:](https://img.shields.io/badge/Paper-Under%20Review-yellow.svg)]([https://github.com/ItsCodeBakery/PlantPathology](https://www.nature.com/articles/s41598-026-45684-x))
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Python: 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 [![Framework: PyTorch](https://img.shields.io/badge/Framework-PyTorch-ee4c2c.svg)](https://pytorch.org/)
 
 Official implementation of the **PlantCLR** framework. This repository provides a scalable, self-supervised pipeline for agricultural AI, focusing on feature extraction from unlabeled data to improve diagnostic accuracy in low-resource settings.
 
-> **Note**: This repository is actively maintained. Paper currently under review. Code and pretrained weights will be released upon acceptance.
+> **Note**: This repository is actively maintained. Code and pretrained weights will be released upon acceptance.
 
 ---
 
@@ -503,6 +503,14 @@ For questions, issues, or collaboration opportunities:
 - [ ] Few-shot learning for rare diseases
 
 ---
+
+## 📄 Citation
+
+If you find this work useful, please cite:
+
+Kang, et al., *"XDR-Net: A hybrid convolutional network with single-layer attention and balanced optimization for diabetic retinopathy detection"*, Scientific Reports, 2026.  
+DOI: https://doi.org/10.1038/s41598-026-45684-x
+
 
 ## 📜 License
 
