@@ -1,0 +1,19 @@
+dataset: "cassava"
+data_path: "data/Cassava"
+num_classes: 5
+img_size: 384
+
+# Pretraining configs
+pretrain:
+  batch_size: 32
+  epochs: 80
+  learning_rate: 0.0003
+  temperature: 0.5
+  augmentation: "strong"
+
+# Classification configs
+classification:
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.01
+  label_smoothing: 0.1

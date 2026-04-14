@@ -1,0 +1,19 @@
+dataset: "plantvillage"
+data_path: "data/PlantVillage"
+num_classes: 38
+img_size: 384
+
+# Pretraining configs
+pretrain:
+  batch_size: 32
+  epochs: 100
+  learning_rate: 0.0003
+  temperature: 0.5
+  augmentation: "strong"
+
+# Classification configs
+classification:
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.01
+  label_smoothing: 0.1
