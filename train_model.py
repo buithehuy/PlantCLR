@@ -82,6 +82,10 @@ def train():
 
     elif args.mode == 'classification':
         print("====== Starting Phase II: Supervised Fine-Tuning ======")
+        # Freeze backbone (f_e) weight parameters as per Architecture diagram
+        print("Freezing ConvNeXt-Tiny backbone (freeze f_e)...")
+        model.freeze_backbone()
+        
         # Use Label Smoothing as requested for regularization
         criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
         
